@@ -499,55 +499,10 @@ button, input, textarea, select {
   text-transform: uppercase;
 }
 
-/* 14px Uppercase Satoshi Navigation Links with 120ms color transition to #b6b5b5 */
-.header-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.header-nav-link {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  transition: color var(--transition-nav);
-}
-
-.header-nav-link:hover {
-  color: #b6b5b5;
-}
-
 .header-right {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-}
-
-/* Pill-shaped contact / knowledge button with 1px solid #1e1e1e border that inverts on hover */
-.pill-contact-btn {
-  padding: 0.55rem 1.35rem;
-  border: 1px solid var(--border-dark);
-  border-radius: 9999px;
-  background: transparent;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all var(--transition-fast);
-}
-
-.pill-contact-btn:hover {
-  background: var(--border-dark);
-  color: var(--bg-canvas);
+  gap: 0.65rem;
 }
 
 .btn.icon-only {
@@ -611,49 +566,49 @@ button, input, textarea, select {
   color: var(--bg-canvas);
 }
 
-/* 7. SCROLLABLE CONTENT VIEWPORT (WELCOME SHOWCASE + CHAT THREAD) */
+/* 7. SCROLLABLE CONTENT VIEWPORT (STRICT CHAT FOCUS) */
 .messages-container {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 0 140px; /* Space for anchored input tray */
+  padding: 1.5rem 1.5rem 140px; /* Space for anchored input tray */
   position: relative;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 8. SIGNATURE HERO: 70VH-100VH & 5-LAYER TYPOGRAPHIC ECHO STACK */
+/* 8. SIGNATURE HERO: CONSTRAINED 5-LAYER TYPOGRAPHIC ECHO STACK */
 .welcome-hero {
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
-  position: relative;
-}
-
-.hero-fullscreen-section {
-  width: 100%;
-  min-height: calc(100vh - var(--header-height));
-  display: flex;
-  flex-direction: column;
+  max-width: 760px;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem 5rem;
   text-align: center;
+  margin: auto;
+  padding: 2.5rem 1.5rem;
   position: relative;
+  flex-shrink: 0;
 }
 
-/* Massive 11vw or 180px Clash Display Typographic Echo Stack */
+/* Scaled Clash Display Echo Stack: clamp(2.5rem, 6.5vw, 5rem), -0.05em, overflow: hidden */
 .hero-echo-container {
   position: relative;
   display: inline-block;
   user-select: none;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(4.5rem, 11vw, 180px);
-  line-height: 0.9;
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  line-height: 0.95;
   letter-spacing: -0.05em;
   text-transform: uppercase;
-  margin-bottom: 2.5rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+  padding: 0.15em 0.3em;
+  margin-bottom: 1.5rem;
 }
 
 /* Top Foreground Layer: #111111 */
@@ -670,9 +625,11 @@ button, input, textarea, select {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
+  text-align: center;
 }
 
 /* Layer 1: -0.04em, #bfbfbf */
@@ -704,41 +661,41 @@ button, input, textarea, select {
 }
 
 .hero-statement {
-  max-width: 680px;
+  max-width: 580px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .hero-tagline {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
   letter-spacing: -0.04em;
   color: var(--text-primary);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .hero-subtext {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-secondary);
-  max-width: 540px;
+  max-width: 480px;
 }
 
 .hero-divider {
-  width: 60px;
+  width: 48px;
   height: 1px;
   background: var(--text-primary);
-  margin: 0.5rem 0;
+  margin: 0.4rem 0;
 }
 
 .hero-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
+  padding: 0.3rem 0.75rem;
   border: 1px solid var(--border-hairline);
   background: var(--bg-surface);
 }
@@ -751,485 +708,13 @@ button, input, textarea, select {
 
 .hero-status-label {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-primary);
 }
 
-/* 9. PHILOSOPHY / NARRATIVE SECTION */
-.editorial-narrative-section {
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Vertical hairline divider (1px #1e1e1e/10) leading into section */
-.narrative-hairline-lead {
-  width: 1px;
-  height: 80px;
-  background: var(--border-hairline);
-  margin-bottom: 3.5rem;
-}
-
-/* Large-scale quote (4xl to 6xl) using Clash Display + contrasting serif italic */
-.narrative-quote-container {
-  max-width: 980px;
-  text-align: center;
-  margin-bottom: 4.5rem;
-}
-
-.narrative-quote {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 4.6vw, 4.2rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: var(--text-primary);
-}
-
-.editorial-serif-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text-secondary);
-  padding: 0 0.15em;
-}
-
-/* 3-Column Grid with 32px Gaps */
-.narrative-three-column {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  border-top: 1px solid var(--border-hairline);
-  padding-top: 3.5rem;
-}
-
-.narrative-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.narrative-col-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.narrative-index {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-.narrative-col h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-}
-
-.narrative-col p {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  font-weight: 400;
-}
-
-/* 10. ASYMMETRICAL SHOWCASE GRID (12 COLUMNS) */
-.showcase-grid-section {
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 4rem 2rem 6rem;
-}
-
-.showcase-section-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-hairline);
-  padding-bottom: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.showcase-section-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-}
-
-.showcase-section-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.asymmetrical-showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
-}
-
-/* Common Showcase Card Reveal & Grayscale to Color Transition */
-.showcase-card {
-  position: relative;
-  border: 1px solid var(--border-hairline);
-  background: var(--bg-surface);
-  overflow: hidden;
-  clip-path: inset(0% 0% 0% 0%);
-  transition: clip-path var(--transition-reveal), border-color var(--transition-smooth);
-}
-
-.showcase-card:hover {
-  border-color: var(--border-dark);
-}
-
-/* Visual elements start with 20% grayscale filter, transitioning to 100% color & 1.05x scale on hover */
-.showcase-visual {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: grayscale(0.2);
-  transform: scale(1);
-  transition: filter 400ms ease, transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-.showcase-card:hover .showcase-visual {
-  filter: grayscale(0);
-  transform: scale(1.05);
-}
-
-/* 1. Large 8-column rectangular card with rounded-sm (4px) corners */
-.showcase-card-8col {
-  grid-column: span 8;
-  height: 440px;
-  border-radius: 4px;
-}
-
-/* 2. Vertical 4-column pill-shaped card (full border-radius 9999px, height 500px) */
-.showcase-card-pill {
-  grid-column: span 4;
-  height: 500px;
-  border-radius: 9999px;
-  position: relative;
-}
-
-/* Circular overlay that only becomes visible (opacity 1) when the pill parent is hovered */
-.pill-hover-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 1px solid var(--border-dark);
-  background: rgba(242, 242, 242, 0.92);
-  backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 300ms ease, transform 300ms ease;
-  z-index: 15;
-}
-
-body.theme-dark .pill-hover-overlay {
-  background: rgba(17, 17, 17, 0.92);
-  border-color: var(--text-primary);
-}
-
-.showcase-card-pill:hover .pill-hover-overlay {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.04);
-}
-
-.pill-overlay-label {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  line-height: 1.1;
-}
-
-.pill-overlay-sub {
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  margin-top: 0.25rem;
-}
-
-/* 3. Circular 5-column aspect-square image */
-.showcase-card-circular {
-  grid-column: span 5;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-}
-
-/* 4. Wide 7-column rectangle */
-.showcase-card-7col {
-  grid-column: span 7;
-  height: 380px;
-  border-radius: 4px;
-}
-
-.showcase-caption {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.caption-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text-primary);
-  background: rgba(242, 242, 242, 0.85);
-  backdrop-filter: blur(4px);
-  padding: 0.2rem 0.5rem;
-}
-
-body.theme-dark .caption-title {
-  background: rgba(17, 17, 17, 0.85);
-}
-
-.caption-meta {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-  background: rgba(242, 242, 242, 0.85);
-  backdrop-filter: blur(4px);
-  padding: 0.2rem 0.5rem;
-}
-
-body.theme-dark .caption-meta {
-  background: rgba(17, 17, 17, 0.85);
-}
-
-/* 11. BESPOKE SERVICE CARDS (3-COLUMN GRID WITH 12-DEGREE ROTATING ICONS) */
-.bespoke-services-section {
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 2rem 2rem 6rem;
-}
-
-.bespoke-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-/* Cards with #1e1e1e/10 borders; background transitions from transparent to #ffffff on hover */
-.bespoke-card {
-  border: 1px solid var(--border-hairline);
-  background: transparent;
-  padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 340px;
-  transition: background-color var(--transition-smooth),
-              border-color var(--transition-smooth),
-              transform var(--transition-smooth);
-  cursor: pointer;
-}
-
-.bespoke-card:hover {
-  background: var(--bg-surface);
-  border-color: var(--border-dark);
-  transform: translateY(-4px);
-}
-
-body.theme-dark .bespoke-card:hover {
-  background: var(--bg-surface);
-  border-color: var(--text-primary);
-}
-
-/* Small geometric icon container (64x64px) that rotates 12 degrees on hover */
-.geometric-icon-container {
-  width: 64px;
-  height: 64px;
-  border: 1px solid var(--border-hairline);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-  background: var(--bg-canvas);
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms ease;
-}
-
-.bespoke-card:hover .geometric-icon-container {
-  transform: rotate(12deg);
-  border-color: var(--border-dark);
-}
-
-body.theme-dark .bespoke-card:hover .geometric-icon-container {
-  border-color: var(--text-primary);
-}
-
-.bespoke-card h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.75rem;
-}
-
-.bespoke-card p {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  flex: 1;
-}
-
-/* Arrow-right icons for CTAs with a tracking-wide bold Satoshi font */
-.bespoke-cta {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--text-primary);
-  transition: gap var(--transition-fast);
-}
-
-.bespoke-card:hover .bespoke-cta {
-  gap: 0.9rem;
-}
-
-/* 12. DEEP DARK FOOTER (#1E1E1E WITH 60% OPACITY OFF-WHITE TEXT) */
-.editorial-dark-footer {
-  width: 100%;
-  background-color: var(--dark-surface);
-  color: var(--dark-footer-text);
-  border-top: 1px solid var(--dark-footer-border);
-  padding: 5rem 2rem 4rem;
-  margin-top: 4rem;
-}
-
-.footer-content-wrapper {
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-}
-
-.footer-4col-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  padding-bottom: 3.5rem;
-  border-bottom: 1px solid var(--dark-footer-border);
-}
-
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.footer-brand-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: -0.04em;
-  color: #f6f6f6;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.footer-brand-desc {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  max-width: 320px;
-}
-
-.footer-col h4 {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #f6f6f6;
-  margin-bottom: 0.4rem;
-}
-
-.footer-nav-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.footer-nav-list a {
-  font-size: 0.85rem;
-  color: var(--dark-footer-text);
-  transition: color var(--transition-nav);
-}
-
-.footer-nav-list a:hover {
-  color: #f6f6f6;
-}
-
-.footer-contact-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.contact-item-row {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.85rem;
-}
-
-.contact-item-row svg {
-  color: #f6f6f6;
-  opacity: 0.75;
-}
-
-.footer-bottom-bar {
-  padding-top: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.76rem;
-  font-family: var(--font-mono);
-}
 
 /* 13. CONVERSATIONAL MESSAGE ROWS */
 .message-row {
@@ -1826,34 +1311,7 @@ body.theme-dark .bespoke-card:hover .geometric-icon-container {
 }
 
 /* 16. RESPONSIVE DESIGN */
-@media (max-width: 1200px) {
-  .narrative-three-column {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .asymmetrical-showcase-grid {
-    grid-template-columns: 1fr;
-  }
-  .showcase-card-8col, .showcase-card-pill, .showcase-card-circular, .showcase-card-7col {
-    grid-column: span 1;
-    height: 380px;
-  }
-  .showcase-card-pill {
-    border-radius: 9999px;
-    height: 480px;
-  }
-  .bespoke-grid {
-    grid-template-columns: 1fr;
-  }
-  .footer-4col-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 @media (max-width: 768px) {
-  .header-nav-links {
-    display: none;
-  }
   .sidebar {
     position: fixed;
     top: 0;
@@ -1875,9 +1333,6 @@ body.theme-dark .bespoke-card:hover .geometric-icon-container {
   .sidebar-backdrop.active {
     display: block;
   }
-  .footer-4col-grid {
-    grid-template-columns: 1fr;
-  }
   .input-hint {
     display: none;
   }
@@ -1885,7 +1340,7 @@ body.theme-dark .bespoke-card:hover .geometric-icon-container {
     padding: 0 1rem;
   }
   .hero-echo-container {
-    font-size: clamp(3.2rem, 14vw, 5.5rem);
+    font-size: clamp(2.2rem, 9vw, 3.6rem);
   }
 }
 

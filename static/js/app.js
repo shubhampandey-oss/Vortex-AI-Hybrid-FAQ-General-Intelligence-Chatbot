@@ -1268,55 +1268,5 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => toast.remove(), 250);
     }, 3200);
   }
-
-  // --- BESPOKE SERVICE CARDS & EDITORIAL NAV WIRE-UP ---
-  const serviceCardFaq = document.getElementById("serviceCardFaq");
-  if (serviceCardFaq) {
-    serviceCardFaq.addEventListener("click", () => {
-      switchMode("faq");
-      showToast("Routing mode switched to FAQ ONLY", "info");
-      if (messageInput) messageInput.focus();
-    });
-  }
-
-  const serviceCardAi = document.getElementById("serviceCardAi");
-  if (serviceCardAi) {
-    serviceCardAi.addEventListener("click", () => {
-      switchMode("ai");
-      showToast("Routing mode switched to AI ASSISTANT", "info");
-      if (messageInput) messageInput.focus();
-    });
-  }
-
-  const serviceCardStudio = document.getElementById("serviceCardStudio");
-  if (serviceCardStudio) {
-    serviceCardStudio.addEventListener("click", () => {
-      if (faqManagerModal) {
-        faqManagerModal.classList.remove("hidden");
-        loadFaqsList();
-      }
-    });
-  }
-
-  const navFaqLink = document.getElementById("navFaqLink");
-  if (navFaqLink) {
-    navFaqLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (faqManagerModal) {
-        faqManagerModal.classList.remove("hidden");
-        loadFaqsList();
-      }
-    });
-  }
-
-  document.querySelectorAll(".open-faq-trigger").forEach((trigger) => {
-    trigger.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (faqManagerModal) {
-        faqManagerModal.classList.remove("hidden");
-        loadFaqsList();
-      }
-    });
-  });
 });
 

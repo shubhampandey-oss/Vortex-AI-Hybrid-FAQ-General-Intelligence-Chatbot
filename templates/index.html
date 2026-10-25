@@ -94,7 +94,7 @@
     <!-- MAIN CHAT CONTAINER -->
     <main class="main-content">
 
-      <!-- STICKY HEADER (80PX WITH BACKDROP BLUR & 14PX SATOSHI LINKS) -->
+      <!-- STICKY HEADER (CLEAN CHAT FOCUS) -->
       <header class="chat-header">
         <div class="header-left">
           <button class="sidebar-toggle-btn" id="mobileMenuBtn" title="Toggle Sidebar (Collapse / Expand)" aria-label="Toggle Sidebar">
@@ -109,19 +109,10 @@
           </div>
         </div>
 
-        <!-- 14px Uppercase Satoshi Navigation Links with 120ms color transition to #b6b5b5 -->
-        <nav class="header-nav-links" aria-label="Main Navigation">
-          <a href="#philosophy" class="header-nav-link">Philosophy</a>
-          <a href="#showcase" class="header-nav-link">Showcase</a>
-          <a href="#services" class="header-nav-link">Services</a>
-          <a href="#faqModal" class="header-nav-link" id="navFaqLink">Knowledge</a>
-        </nav>
-
         <div class="header-right">
-          <!-- Pill-shaped contact / knowledge button with 1px solid #1e1e1e border that inverts on hover -->
-          <button class="pill-contact-btn" id="openManageFaqBtn" title="Browse, Search, Add or Edit FAQs">
-            <span>KNOWLEDGE BASE</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          <!-- KNOWLEDGE BASE MODAL BUTTON -->
+          <button class="btn icon-only" id="openManageFaqBtn" title="Knowledge Base (Manage FAQs)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           </button>
 
           <!-- THEME TOGGLE BUTTON (Light / Dark) -->
@@ -148,305 +139,30 @@
         </div>
       </header>
 
-      <!-- MESSAGES DISPLAY CONTAINER (HOUSES HERO SHOWCASE + ACTIVE CONVERSATIONS) -->
+      <!-- MESSAGES DISPLAY CONTAINER (STRICT CHAT FOCUS) -->
       <div class="messages-container" id="messagesContainer">
 
-        <!-- SIGNATURE HERO & EDITORIAL SHOWCASE SECTION -->
+        <!-- SIGNATURE HERO: CONSTRAINED TYPOGRAPHIC ECHO STACK -->
         <div class="welcome-hero" id="welcomeHero">
+          <div class="hero-echo-container" aria-label="VORTEX">
+            <span class="echo-layer echo-layer-4" aria-hidden="true">VORTEX</span>
+            <span class="echo-layer echo-layer-3" aria-hidden="true">VORTEX</span>
+            <span class="echo-layer echo-layer-2" aria-hidden="true">VORTEX</span>
+            <span class="echo-layer echo-layer-1" aria-hidden="true">VORTEX</span>
+            <h1 class="echo-foreground">VORTEX</h1>
+          </div>
 
-          <!-- 1. FULLSCREEN HERO (70VH-100VH) WITH 5-LAYER TYPOGRAPHIC ECHO STACK -->
-          <section class="hero-fullscreen-section">
-            <div class="hero-echo-container" aria-label="VORTEX">
-              <span class="echo-layer echo-layer-4" aria-hidden="true">VORTEX</span>
-              <span class="echo-layer echo-layer-3" aria-hidden="true">VORTEX</span>
-              <span class="echo-layer echo-layer-2" aria-hidden="true">VORTEX</span>
-              <span class="echo-layer echo-layer-1" aria-hidden="true">VORTEX</span>
-              <h1 class="echo-foreground">VORTEX</h1>
+          <div class="hero-statement">
+            <h2 class="hero-tagline">Intelligence, without the noise.</h2>
+            <p class="hero-subtext">Ask questions, explore ideas, solve problems, and get answers from your knowledge base or AI assistant.</p>
+            <div class="hero-divider"></div>
+            <div class="hero-status-pill">
+              <span class="status-indicator-dot"></span>
+              <span class="hero-status-label">HYBRID INTELLIGENCE SYSTEM</span>
             </div>
-
-            <div class="hero-statement">
-              <h2 class="hero-tagline">Intelligence, without the noise.</h2>
-              <p class="hero-subtext">Ask questions, explore ideas, solve problems, and get answers from your knowledge base or AI assistant.</p>
-              <div class="hero-divider"></div>
-              <div class="hero-status-pill">
-                <span class="status-indicator-dot"></span>
-                <span class="hero-status-label">HYBRID INTELLIGENCE SYSTEM</span>
-              </div>
-            </div>
-          </section>
-
-          <!-- 2. PHILOSOPHY / NARRATIVE SECTION -->
-          <section class="editorial-narrative-section" id="philosophy">
-            <!-- Centered block with vertical hairline divider (1px #1e1e1e/10) leading into section -->
-            <div class="narrative-hairline-lead"></div>
-
-            <!-- Large-scale quote (4xl to 6xl) using Clash Display, featuring a single keyword in contrasting serif italic -->
-            <div class="narrative-quote-container">
-              <blockquote class="narrative-quote">
-                “Intelligence is not the accumulation of answers, but the radical elimination of noise until only <span class="editorial-serif-italic">clarity</span> remains.”
-              </blockquote>
-            </div>
-
-            <!-- 3-Column Grid with 32px Gaps -->
-            <div class="narrative-three-column">
-              <div class="narrative-col">
-                <div class="narrative-col-header">
-                  <span class="narrative-index">01 / RETRIEVAL</span>
-                  <h3>Deterministic Corpus</h3>
-                </div>
-                <p>High-precision cosine similarity vectorization mapped over verified knowledge bases. Zero hallucination, deterministic confidence scoring, and instantaneous sub-3ms evaluation.</p>
-              </div>
-
-              <div class="narrative-col">
-                <div class="narrative-col-header">
-                  <span class="narrative-index">02 / SYNTHESIS</span>
-                  <h3>Cognitive Routing</h3>
-                </div>
-                <p>Autonomous query routing linking mathematical engines, local institution data, and deep neural LLMs (Google Gemini 3.5 & OpenAI) for comprehensive multi-turn problem solving.</p>
-              </div>
-
-              <div class="narrative-col">
-                <div class="narrative-col-header">
-                  <span class="narrative-index">03 / FORM</span>
-                  <h3>Brutalist Discipline</h3>
-                </div>
-                <p>Rooted in Swiss International Typographic Style. Rejection of superfluous decorative clutter in favor of intentional hierarchy, razor hairline borders, and pure typographic weight.</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- 3. ASYMMETRICAL SHOWCASE GRID (12-COLUMN MIXED ASPECT RATIO) -->
-          <section class="showcase-grid-section" id="showcase">
-            <div class="showcase-section-header">
-              <h2 class="showcase-section-title">Asymmetrical Architecture</h2>
-              <span class="showcase-section-tag">Grid System // 12-Column Blueprint</span>
-            </div>
-
-            <div class="asymmetrical-showcase-grid">
-              <!-- Item 1: Large 8-column rectangular card with rounded-sm corners -->
-              <div class="showcase-card showcase-card-8col">
-                <div class="showcase-visual">
-                  <svg width="100%" height="100%" viewBox="0 0 800 440" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="800" height="440" fill="#E8E8E8"/>
-                    <!-- Architectural brutalist grid lines -->
-                    <line x1="80" y1="0" x2="80" y2="440" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="240" y1="0" x2="240" y2="440" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="400" y1="0" x2="400" y2="440" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="560" y1="0" x2="560" y2="440" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="720" y1="0" x2="720" y2="440" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="0" y1="110" x2="800" y2="110" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="0" y1="220" x2="800" y2="220" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <line x1="0" y1="330" x2="800" y2="330" stroke="#111111" stroke-width="1" stroke-opacity="0.15"/>
-                    <!-- Geometric isometric blueprint motifs -->
-                    <rect x="240" y="110" width="320" height="220" stroke="#111111" stroke-width="1.5"/>
-                    <circle cx="400" cy="220" r="80" stroke="#111111" stroke-width="1.5"/>
-                    <circle cx="400" cy="220" r="4" fill="#111111"/>
-                    <path d="M240 110L400 220L560 110" stroke="#111111" stroke-width="1"/>
-                    <path d="M240 330L400 220L560 330" stroke="#111111" stroke-width="1"/>
-                    <text x="260" y="140" font-family="'JetBrains Mono', monospace" font-size="11" fill="#111111" letter-spacing="1">MOD_01 // ISOMETRIC VECTOR SPACE</text>
-                    <text x="260" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#838282">DIMENSIONS: [128 × 2816] VOCABULARY</text>
-                  </svg>
-                </div>
-                <div class="showcase-caption">
-                  <span class="caption-title">01 / Vector Embedding Matrix</span>
-                  <span class="caption-meta">8-COL RECTANGLE</span>
-                </div>
-              </div>
-
-              <!-- Item 2: Vertical 4-column pill-shaped card (full border-radius 9999px, height 500px) -->
-              <div class="showcase-card showcase-card-pill">
-                <div class="showcase-visual">
-                  <svg width="100%" height="100%" viewBox="0 0 320 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="320" height="500" fill="#DFDFDF"/>
-                    <!-- Vertical orbit axis lines -->
-                    <line x1="160" y1="0" x2="160" y2="500" stroke="#111111" stroke-width="1.2" stroke-dasharray="4 4"/>
-                    <ellipse cx="160" cy="250" rx="110" ry="170" stroke="#111111" stroke-width="1.2"/>
-                    <ellipse cx="160" cy="250" rx="70" ry="110" stroke="#111111" stroke-width="1"/>
-                    <circle cx="160" cy="80" r="6" fill="#111111"/>
-                    <circle cx="160" cy="420" r="6" fill="#111111"/>
-                    <circle cx="50" cy="250" r="4" fill="#111111"/>
-                    <circle cx="270" cy="250" r="4" fill="#111111"/>
-                    <text x="160" y="470" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#111111" letter-spacing="2">PILL ARCHITECTURE</text>
-                  </svg>
-                </div>
-
-                <!-- Circular overlay that becomes visible on hover (opacity 1) containing secondary text in a thin border -->
-                <div class="pill-hover-overlay">
-                  <span class="pill-overlay-label">PILL // 02</span>
-                  <span class="pill-overlay-sub">500PX VERTICAL</span>
-                </div>
-
-                <div class="showcase-caption">
-                  <span class="caption-title">02 / Harmonic Capsule</span>
-                  <span class="caption-meta">4-COL PILL</span>
-                </div>
-              </div>
-
-              <!-- Item 3: Circular 5-column aspect-square image -->
-              <div class="showcase-card showcase-card-circular">
-                <div class="showcase-visual">
-                  <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="400" height="400" fill="#D6D6D6"/>
-                    <!-- Concentric brutalist radial arcs -->
-                    <circle cx="200" cy="200" r="180" stroke="#111111" stroke-width="1.5"/>
-                    <circle cx="200" cy="200" r="140" stroke="#111111" stroke-width="1"/>
-                    <circle cx="200" cy="200" r="100" stroke="#111111" stroke-width="1.5" stroke-dasharray="6 6"/>
-                    <circle cx="200" cy="200" r="60" stroke="#111111" stroke-width="1"/>
-                    <circle cx="200" cy="200" r="20" fill="#111111"/>
-                    <line x1="20" y1="200" x2="380" y2="200" stroke="#111111" stroke-width="1"/>
-                    <line x1="200" y1="20" x2="200" y2="380" stroke="#111111" stroke-width="1"/>
-                    <text x="200" y="360" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#111111" letter-spacing="1">RADIAL APERTURE // 5-COL</text>
-                  </svg>
-                </div>
-                <div class="showcase-caption">
-                  <span class="caption-title">03 / Radial Synapse</span>
-                  <span class="caption-meta">5-COL CIRCLE</span>
-                </div>
-              </div>
-
-              <!-- Item 4: Wide 7-column rectangle -->
-              <div class="showcase-card showcase-card-7col">
-                <div class="showcase-visual">
-                  <svg width="100%" height="100%" viewBox="0 0 700 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="700" height="380" fill="#E2E2E2"/>
-                    <!-- Topographic mathematical frequency waveform -->
-                    <path d="M0 190 Q175 70, 350 190 T700 190" stroke="#111111" stroke-width="2" fill="none"/>
-                    <path d="M0 190 Q175 110, 350 190 T700 190" stroke="#111111" stroke-width="1" stroke-opacity="0.6" fill="none"/>
-                    <path d="M0 190 Q175 150, 350 190 T700 190" stroke="#111111" stroke-width="1" stroke-opacity="0.3" fill="none"/>
-                    <path d="M0 190 Q175 230, 350 190 T700 190" stroke="#111111" stroke-width="1" stroke-opacity="0.3" fill="none"/>
-                    <path d="M0 190 Q175 270, 350 190 T700 190" stroke="#111111" stroke-width="1" stroke-opacity="0.6" fill="none"/>
-                    <path d="M0 190 Q175 310, 350 190 T700 190" stroke="#111111" stroke-width="2" fill="none"/>
-                    <line x1="350" y1="40" x2="350" y2="340" stroke="#111111" stroke-width="1" stroke-dasharray="3 3"/>
-                    <text x="350" y="50" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#111111" letter-spacing="2">SPECTRAL HARMONICS</text>
-                  </svg>
-                </div>
-                <div class="showcase-caption">
-                  <span class="caption-title">04 / Frequency Interference</span>
-                  <span class="caption-meta">7-COL RECTANGLE</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 4. BESPOKE SERVICE CARDS (3-COLUMN GRID WITH 12-DEGREE ROTATING ICONS) -->
-          <section class="bespoke-services-section" id="services">
-            <div class="showcase-section-header">
-              <h2 class="showcase-section-title">Bespoke Engines</h2>
-              <span class="showcase-section-tag">Modules // 01 — 03</span>
-            </div>
-
-            <div class="bespoke-grid">
-              <!-- Service Card 1 -->
-              <div class="bespoke-card" id="serviceCardFaq">
-                <div>
-                  <div class="geometric-icon-container">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <rect x="3" y="3" width="18" height="18"/>
-                      <line x1="3" y1="9" x2="21" y2="9"/>
-                      <line x1="9" y1="21" x2="9" y2="9"/>
-                    </svg>
-                  </div>
-                  <h3>TF-IDF Vector Index</h3>
-                  <p>Pre-computed tokenization and term-frequency inverse document frequency matrix over verified institutional data. Instantaneous zero-hallucination factual accuracy.</p>
-                </div>
-                <span class="bespoke-cta">QUERY REPOSITORY →</span>
-              </div>
-
-              <!-- Service Card 2 -->
-              <div class="bespoke-card" id="serviceCardAi">
-                <div>
-                  <div class="geometric-icon-container">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <circle cx="12" cy="12" r="9"/>
-                      <line x1="12" y1="3" x2="12" y2="21"/>
-                      <line x1="3" y1="12" x2="21" y2="12"/>
-                    </svg>
-                  </div>
-                  <h3>Generative Synthesis</h3>
-                  <p>Deep analytical reasoning and code execution orchestrated dynamically through Google Gemini 3.5 and OpenAI models with multi-turn conversational context.</p>
-                </div>
-                <span class="bespoke-cta">ACTIVATE REASONING →</span>
-              </div>
-
-              <!-- Service Card 3 -->
-              <div class="bespoke-card" id="serviceCardStudio">
-                <div>
-                  <div class="geometric-icon-container">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                      <polyline points="2 17 12 22 22 17"/>
-                      <polyline points="2 12 12 17 22 12"/>
-                    </svg>
-                  </div>
-                  <h3>Live Knowledge Studio</h3>
-                  <p>Administrative interface for real-time CRUD dataset expansion with hot vector re-fitting, category taxonomy filtering, and automated accuracy metrics.</p>
-                </div>
-                <span class="bespoke-cta">MANAGE CORPUS →</span>
-              </div>
-            </div>
-          </section>
-
-          <!-- 5. DEEP DARK FOOTER (#1E1E1E WITH 60% OPACITY OFF-WHITE TEXT) -->
-          <footer class="editorial-dark-footer">
-            <div class="footer-content-wrapper">
-              <div class="footer-4col-grid">
-                <!-- Col 1: Brand Summary -->
-                <div class="footer-col">
-                  <span class="footer-brand-title">■ VORTEX AI</span>
-                  <p class="footer-brand-desc">A Swiss Minimalism × Luxury Brutalist hybrid intelligence system uniting deterministic vector matching with neural generative synthesis.</p>
-                </div>
-
-                <!-- Col 2: Navigation -->
-                <div class="footer-col">
-                  <h4>Navigation</h4>
-                  <ul class="footer-nav-list">
-                    <li><a href="#philosophy">Philosophy</a></li>
-                    <li><a href="#showcase">Showcase Grid</a></li>
-                    <li><a href="#services">Bespoke Engines</a></li>
-                    <li><a href="#faqModal" class="open-faq-trigger">Knowledge Base</a></li>
-                  </ul>
-                </div>
-
-                <!-- Col 3: Architecture -->
-                <div class="footer-col">
-                  <h4>Architecture</h4>
-                  <ul class="footer-nav-list">
-                    <li><a href="#">TF-IDF Vectorizer</a></li>
-                    <li><a href="#">Cosine Metric Space</a></li>
-                    <li><a href="#">Gemini 3.5 Flash</a></li>
-                    <li><a href="#">REST API Protocol</a></li>
-                  </ul>
-                </div>
-
-                <!-- Col 4: Contact & Verification with Lucide-style line icons -->
-                <div class="footer-col">
-                  <h4>Verification</h4>
-                  <div class="footer-contact-items">
-                    <div class="contact-item-row">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                      <span>vortex-cli // v2.4.0</span>
-                    </div>
-                    <div class="contact-item-row">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                      <span>Latency: &lt; 3.0ms Local</span>
-                    </div>
-                    <div class="contact-item-row">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                      <span>System: Operational</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="footer-bottom-bar">
-                <span>© 2026 VORTEX AI. SWISS INTERNATIONAL TYPOGRAPHIC STYLE.</span>
-                <span>EDITORIAL BRUTALISM // MONOCHROMATIC ENGINE</span>
-              </div>
-            </div>
-          </footer>
-
+          </div>
         </div>
-        <!-- END SIGNATURE HERO & EDITORIAL SHOWCASE -->
+        <!-- END SIGNATURE HERO -->
 
         <!-- DYNAMIC MESSAGE ROWS INJECTED HERE -->
 
