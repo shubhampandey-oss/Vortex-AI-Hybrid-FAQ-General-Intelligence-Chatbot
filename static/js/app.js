@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
 
   function initTheme() {
-    const savedTheme = localStorage.getItem("codealpha_theme") || "theme-dark";
+    const savedTheme = localStorage.getItem("codealpha_theme") || "theme-light";
     document.body.className = savedTheme;
     updateThemeIcons(savedTheme);
 
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Update header latency badge
       if (data.latency_ms !== undefined && headerLatencyBadge) {
-        headerLatencyBadge.textContent = `⚡ ${data.latency_ms}ms`;
+        headerLatencyBadge.textContent = `${data.latency_ms}ms`;
       }
 
       // 4. Render Bot Response
@@ -437,38 +437,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const badgeRow = document.createElement("div");
     badgeRow.className = "xai-badge-row";
 
-    // 1. Source Pill
+    // 1. Source Pill (Clean Monochrome Editorial Labels)
     const sourcePill = document.createElement("span");
     const src = meta.source || "Unknown";
     if (src.includes("Local FAQ Match")) {
       sourcePill.className = "xai-pill source-local";
-      sourcePill.innerHTML = `📚 Local FAQ Match`;
+      sourcePill.textContent = "LOCAL FAQ";
     } else if (src.includes("Math & Logic Engine")) {
       sourcePill.className = "xai-pill source-math";
-      sourcePill.innerHTML = `🧮 Math & Logic Engine`;
+      sourcePill.textContent = "MATH ENGINE";
     } else if (src.includes("Utility Engine")) {
       sourcePill.className = "xai-pill source-util";
-      sourcePill.innerHTML = `⏱️ Utility Engine`;
+      sourcePill.textContent = "UTILITY ENGINE";
     } else if (src.includes("Gemini")) {
       sourcePill.className = "xai-pill source-gemini";
-      sourcePill.innerHTML = `✨ Google Gemini AI`;
+      sourcePill.textContent = "GEMINI AI";
     } else if (src.includes("OpenAI")) {
       sourcePill.className = "xai-pill source-openai";
-      sourcePill.innerHTML = `✨ OpenAI Assistant`;
+      sourcePill.textContent = "OPENAI";
     } else if (src.includes("Strict FAQ")) {
       sourcePill.className = "xai-pill source-fallback";
-      sourcePill.innerHTML = `📚 Strict FAQ (Unmatched)`;
+      sourcePill.textContent = "OFFLINE MODE";
     } else {
       sourcePill.className = "xai-pill source-fallback";
-      sourcePill.innerHTML = `⚡ Smart Knowledge Fallback`;
+      sourcePill.textContent = "KNOWLEDGE RETRIEVAL";
     }
     badgeRow.appendChild(sourcePill);
 
     // 2. Mode Pill
     const modePill = document.createElement("span");
     modePill.className = "xai-pill mode-tag";
-    const modeName = (meta.mode === "faq") ? "FAQ Only" : (meta.mode === "ai" ? "AI Assistant" : "Auto Mode");
-    modePill.textContent = `Mode: ${modeName}`;
+    const modeName = (meta.mode === "faq") ? "FAQ ONLY" : (meta.mode === "ai" ? "AI ASSISTANT" : "AUTO");
+    modePill.textContent = `MODE: ${modeName}`;
     badgeRow.appendChild(modePill);
 
     // 3. Confidence Pill
@@ -801,9 +801,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (activeModeBadge) {
-      if (newMode === "faq") activeModeBadge.textContent = "📚 FAQ Only Mode";
-      else if (newMode === "ai") activeModeBadge.textContent = "✨ AI Assistant Mode";
-      else activeModeBadge.textContent = "⚡ Auto Mode";
+      if (newMode === "faq") activeModeBadge.textContent = "FAQ ONLY";
+      else if (newMode === "ai") activeModeBadge.textContent = "AI ASSISTANT";
+      else activeModeBadge.textContent = "AUTO";
     }
 
     // Save mode to current session if active

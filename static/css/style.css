@@ -10,7 +10,8 @@
 :root {
   /* raunaksingh.me Deep Obsidian & Charcoal Surfaces */
   --bg-deepest: #070708;
-  --bg-base: #0d0d0d;              /* Exact raunaksingh.me background-color */
+  --bg-base: #0d0d0d;
+  /* Exact raunaksingh.me background-color */
   --bg-surface: #131316;
   --bg-elevated: #1a1a20;
   --bg-card: rgba(19, 19, 24, 0.72);
@@ -20,20 +21,26 @@
   --border-glass: rgba(255, 255, 255, 0.08);
 
   /* raunaksingh.me Primary Accent & Glow Tokens */
-  --accentColor: #c2a4ff;          /* Exact raunaksingh.me --accentColor */
+  --accentColor: #c2a4ff;
+  /* Exact raunaksingh.me --accentColor */
   --accentColorDim: rgba(194, 164, 255, 0.6);
   --glowColor: rgba(194, 164, 255, 0.35);
-  --accent-purple: #a87cff;        /* Exact loading-hover & game-ball color */
+  --accent-purple: #a87cff;
+  /* Exact loading-hover & game-ball color */
   --accent-violet: #8b5cf6;
   --accent-violet-deep: #6d28d9;
   --accent-glass: rgba(194, 164, 255, 0.08);
   --accent-glass-hover: rgba(194, 164, 255, 0.18);
 
   /* Typography Colors */
-  --text-main: #eae5ec;            /* Exact raunaksingh.me primary body text */
-  --text-secondary: #b8b2c4;       /* Soft lilac-gray */
-  --text-muted: #857e93;           /* Muted taupe-purple */
-  --text-dim: #5c566b;             /* Dim charcoal purple */
+  --text-main: #eae5ec;
+  /* Exact raunaksingh.me primary body text */
+  --text-secondary: #b8b2c4;
+  /* Soft lilac-gray */
+  --text-muted: #857e93;
+  /* Muted taupe-purple */
+  --text-dim: #5c566b;
+  /* Dim charcoal purple */
   --text-inverse: #0d0d0d;
 
   /* Accent State Indicators */
@@ -110,13 +117,16 @@ body.theme-light {
 }
 
 /* 2. BASE RESETS & GLOBAL STYLES */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -143,13 +153,16 @@ html, body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-base);
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(194, 164, 255, 0.2);
   border-radius: var(--radius-pill);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(194, 164, 255, 0.4);
 }
@@ -163,9 +176,17 @@ html, body {
   font-weight: 800;
 }
 
-.text-emerald { color: var(--accent-emerald) !important; }
-.text-amber { color: var(--accent-gold) !important; }
-.text-danger { color: var(--accent-rose) !important; }
+.text-emerald {
+  color: var(--accent-emerald) !important;
+}
+
+.text-amber {
+  color: var(--accent-gold) !important;
+}
+
+.text-danger {
+  color: var(--accent-rose) !important;
+}
 
 /* 3. APPLICATION LAYOUT (RAUNAK SINGH AMBIENT GLOW AESTHETIC) */
 .app-layout {
@@ -194,16 +215,16 @@ html, body {
   -webkit-backdrop-filter: blur(24px);
   box-shadow: var(--shadow-md);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s ease,
-              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.3s ease;
+    min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s ease;
   overflow: hidden;
   flex-shrink: 0;
 }
 
 /* Ensure inner contents keep fixed width during smooth collapse/expand animation */
-.sidebar > * {
+.sidebar>* {
   width: var(--sidebar-width);
   min-width: var(--sidebar-width);
   box-sizing: border-box;
@@ -749,7 +770,8 @@ html, body {
   gap: 0.95rem;
 }
 
-.mobile-menu-btn, .sidebar-toggle-btn {
+.mobile-menu-btn,
+.sidebar-toggle-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -760,7 +782,8 @@ html, body {
   transition: all var(--transition-fast);
 }
 
-.mobile-menu-btn:hover, .sidebar-toggle-btn:hover {
+.mobile-menu-btn:hover,
+.sidebar-toggle-btn:hover {
   background: var(--accent-glass-hover);
   color: var(--accentColor);
   transform: scale(1.05);
@@ -862,7 +885,8 @@ html, body {
   color: var(--text-main);
 }
 
-.btn.icon-only, .icon-btn {
+.btn.icon-only,
+.icon-btn {
   padding: 0.5rem;
   border-radius: var(--radius-md);
   background: transparent;
@@ -1045,8 +1069,15 @@ html, body {
 }
 
 @keyframes messageSlideIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .message-row.user {
@@ -1137,11 +1168,15 @@ html, body {
 .message-bubble p {
   margin-bottom: 0.7rem;
 }
+
 .message-bubble p:last-child {
   margin-bottom: 0;
 }
 
-.message-bubble h1, .message-bubble h2, .message-bubble h3, .message-bubble h4 {
+.message-bubble h1,
+.message-bubble h2,
+.message-bubble h3,
+.message-bubble h4 {
   margin-top: 0.9rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -1149,12 +1184,24 @@ html, body {
   letter-spacing: -0.01em;
 }
 
-.message-bubble h1 { font-size: 1.28rem; }
-.message-bubble h2 { font-size: 1.15rem; }
-.message-bubble h3 { font-size: 1.05rem; }
-.message-bubble h4 { font-size: 0.95rem; }
+.message-bubble h1 {
+  font-size: 1.28rem;
+}
 
-.message-bubble ul, .message-bubble ol {
+.message-bubble h2 {
+  font-size: 1.15rem;
+}
+
+.message-bubble h3 {
+  font-size: 1.05rem;
+}
+
+.message-bubble h4 {
+  font-size: 0.95rem;
+}
+
+.message-bubble ul,
+.message-bubble ol {
   margin-left: 1.45rem;
   margin-bottom: 0.7rem;
 }
@@ -1180,7 +1227,8 @@ html, body {
   font-size: 0.84rem;
 }
 
-.message-bubble th, .message-bubble td {
+.message-bubble th,
+.message-bubble td {
   border: 1px solid var(--border-subtle);
   padding: 0.5rem 0.75rem;
   text-align: left;
@@ -1426,13 +1474,31 @@ html, body {
   animation: typingBounce 1.4s infinite ease-in-out both;
 }
 
-.typing-dot:nth-child(1) { animation-delay: -0.32s; }
-.typing-dot:nth-child(2) { animation-delay: -0.16s; }
-.typing-dot:nth-child(3) { animation-delay: 0s; }
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0s;
+}
 
 @keyframes typingBounce {
-  0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
-  40% { transform: scale(1); opacity: 1; }
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .typing-label {
@@ -1539,6 +1605,7 @@ html, body {
   margin-bottom: 0.35rem;
   scrollbar-width: none;
 }
+
 .quick-chips-bar::-webkit-scrollbar {
   display: none;
 }
@@ -1658,8 +1725,15 @@ html, body {
 }
 
 @keyframes modalScaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .modal-header {
@@ -1713,7 +1787,9 @@ html, body {
   color: var(--accent-rose);
 }
 
-.form-input, .form-select, .form-textarea {
+.form-input,
+.form-select,
+.form-textarea {
   background: rgba(7, 7, 8, 0.85);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -1725,7 +1801,9 @@ html, body {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.form-input:focus, .form-select:focus, .form-textarea:focus {
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
   border-color: var(--accentColor);
   box-shadow: 0 0 12px rgba(194, 164, 255, 0.3);
 }
@@ -1788,13 +1866,28 @@ html, body {
   min-width: 260px;
 }
 
-.toast.success { border-left: 3px solid var(--accent-emerald); }
-.toast.error { border-left: 3px solid var(--accent-rose); }
-.toast.info { border-left: 3px solid var(--accentColor); }
+.toast.success {
+  border-left: 3px solid var(--accent-emerald);
+}
+
+.toast.error {
+  border-left: 3px solid var(--accent-rose);
+}
+
+.toast.info {
+  border-left: 3px solid var(--accentColor);
+}
 
 @keyframes toastSlideIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 13. RESPONSIVE MEDIA QUERIES */
@@ -1852,7 +1945,8 @@ html, body {
     display: block;
   }
 
-  .mobile-menu-btn, .mobile-close-btn {
+  .mobile-menu-btn,
+  .mobile-close-btn {
     display: inline-flex;
   }
 
@@ -1998,10 +2092,11 @@ html, body {
   margin-right: 2px;
 }
 
-.loading-text, .empty-state-text, .error-text {
+.loading-text,
+.empty-state-text,
+.error-text {
   text-align: center;
   padding: 2rem;
   color: var(--text-muted);
   font-size: 0.88rem;
 }
-

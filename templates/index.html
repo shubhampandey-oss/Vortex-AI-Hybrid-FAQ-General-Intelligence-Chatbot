@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vortex | Hybrid AI Chatbot</title>
-  <meta name="description" content="Vortex - Production-grade Hybrid AI Chatbot combining TF-IDF Cosine Similarity for FAQ retrieval and Generative AI Assistant (Gemini / OpenAI).">
+  <title>Vortex — Swiss Editorial Hybrid AI</title>
+  <meta name="description" content="Vortex — Typography-first AI application combining verified local FAQ knowledge retrieval with Generative AI (Gemini / OpenAI).">
 
-  <!-- Google Fonts: Geist & JetBrains Mono typography -->
+  <!-- Typography: Clash Display (Headlines) & Satoshi (Body/Interface) from Fontshare + JetBrains Mono -->
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Highlight.js for Syntax Highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
@@ -21,7 +23,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="theme-dark">
+<body class="theme-light">
   <div class="app-layout">
 
     <!-- MOBILE OVERLAY BACKDROP -->
@@ -31,27 +33,20 @@
     <aside class="sidebar" id="sidebar">
       <!-- BRAND HEADER -->
       <div class="sidebar-header">
-        <div class="brand-logo-container">
-          <div class="brand-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
-              <path d="M12 6v6l4 2"></path>
-              <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
-            </svg>
+        <div class="brand-wordmark">
+          <div class="brand-title-row">
+            <span class="brand-symbol">■</span>
+            <span class="brand-title">VORTEX</span>
           </div>
-          <div class="brand-text">
-            <h1 class="brand-title">Vortex <span class="gradient-text">AI</span></h1>
-            <span class="brand-badge">Assistant</span>
-          </div>
+          <span class="brand-badge">AI ASSISTANT // EDITORIAL SYSTEM</span>
         </div>
       </div>
 
-      <!-- LIVE STATUS PILL -->
       <!-- NEW CHAT ACTION BUTTON -->
       <div class="sidebar-actions-bar">
         <button class="btn-new-chat" id="newChatBtn" title="Start a fresh conversation">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          <span>New Chat</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>NEW CHAT</span>
         </button>
       </div>
 
@@ -66,7 +61,7 @@
             type="text"
             id="historySearchInput"
             class="history-search-input"
-            placeholder="Search history..."
+            placeholder="Search conversations..."
             autocomplete="off"
             aria-label="Search conversation history"
           >
@@ -77,8 +72,8 @@
       <!-- CHAT HISTORY SESSIONS SCROLLABLE LIST -->
       <div class="sidebar-history-scrollable" id="historySessionsScrollable">
         <div class="history-list-header">
-          <span class="history-label">Recent Chats</span>
-          <button type="button" class="history-clear-btn" id="clearAllHistoryBtn" title="Clear all chat history">Clear All</button>
+          <span class="history-label">Past Conversations</span>
+          <button type="button" class="history-clear-btn" id="clearAllHistoryBtn" title="Clear all chat history">CLEAR ALL</button>
         </div>
         <div class="history-sessions-list" id="historySessionsList">
           <!-- Populated dynamically via JS -->
@@ -89,7 +84,7 @@
             <line x1="12" y1="8" x2="12" y2="12"></line>
             <line x1="12" y1="16" x2="12.01" y2="16"></line>
           </svg>
-          <span id="historyEmptyText">No chats found</span>
+          <span id="historyEmptyText">No conversations recorded</span>
         </div>
       </div>
     </aside>
@@ -101,50 +96,50 @@
       <header class="chat-header">
         <div class="header-left">
           <button class="icon-btn mobile-menu-btn sidebar-toggle-btn" id="mobileMenuBtn" title="Toggle Sidebar (Collapse / Expand)" aria-label="Toggle Sidebar">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
           <div class="header-title-block">
-            <h2 class="header-main-title">Vortex</h2>
+            <span class="header-brand-tag">VORTEX</span>
             <div class="header-sub-badges">
-              <span class="active-mode-badge" id="activeModeBadge">⚡ Auto Mode</span>
-              <span class="latency-badge" id="headerLatencyBadge">⚡ 1.2ms Avg</span>
+              <span class="active-mode-badge" id="activeModeBadge">AUTO</span>
+              <span class="latency-badge" id="headerLatencyBadge">1.2ms</span>
             </div>
           </div>
         </div>
 
         <div class="header-right">
           <!-- MANAGE / ADD FAQS BUTTON -->
-          <button class="btn btn-secondary add-faq-btn" id="openManageFaqBtn" title="Manage, Search, Add or Edit FAQs">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <span>Manage FAQs</span>
+          <button class="btn btn-outline manage-faq-btn" id="openManageFaqBtn" title="Browse, Search, Add or Edit FAQs">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>KNOWLEDGE BASE</span>
           </button>
 
-          <!-- THEME TOGGLE BUTTON (Dark / Light) -->
-          <button class="btn btn-ghost icon-only theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark / Light Theme">
-            <svg class="sun-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <!-- THEME TOGGLE BUTTON (Light / Dark) -->
+          <button class="btn icon-only theme-toggle-btn" id="themeToggleBtn" title="Toggle Light / Dark Theme">
+            <svg class="sun-icon hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
 
           <!-- EXPORT DROPDOWN -->
           <div class="dropdown">
-            <button class="btn btn-ghost icon-only" id="exportDropdownBtn" title="Export Conversation">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <button class="btn icon-only" id="exportDropdownBtn" title="Export Conversation">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </button>
             <div class="dropdown-menu" id="exportDropdownMenu">
               <button class="dropdown-item" id="exportTxtBtn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Export Chat (.txt)
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Export TXT
               </button>
               <button class="dropdown-item" id="exportJsonBtn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                Export Chat (.json)
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                Export JSON
               </button>
             </div>
           </div>
 
           <!-- CLEAR CHAT BUTTON -->
-          <button class="btn btn-ghost icon-only text-danger" id="clearChatBtn" title="Clear Conversation">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+          <button class="btn icon-only text-danger" id="clearChatBtn" title="Clear Conversation">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
           </button>
         </div>
       </header>
@@ -152,21 +147,28 @@
       <!-- MESSAGES DISPLAY CONTAINER -->
       <div class="messages-container" id="messagesContainer">
 
-        <!-- WELCOME HERO SECTION -->
+        <!-- SIGNATURE HERO: TYPOGRAPHIC ECHO STACK -->
         <div class="welcome-hero" id="welcomeHero">
-          <div class="hero-avatar">
-            <div class="hero-avatar-glow"></div>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-              <line x1="9" y1="9" x2="9.01" y2="9" stroke-width="3"></line>
-              <line x1="15" y1="9" x2="15.01" y2="9" stroke-width="3"></line>
-            </svg>
+          <div class="hero-echo-container" aria-label="VORTEX">
+            <span class="echo-layer echo-layer-4" aria-hidden="true">VORTEX</span>
+            <span class="echo-layer echo-layer-3" aria-hidden="true">VORTEX</span>
+            <span class="echo-layer echo-layer-2" aria-hidden="true">VORTEX</span>
+            <span class="echo-layer echo-layer-1" aria-hidden="true">VORTEX</span>
+            <h1 class="echo-foreground">VORTEX</h1>
           </div>
-          <h3 class="hero-title">Welcome to <span class="gradient-text">Vortex</span></h3>
+
+          <div class="hero-statement">
+            <h2 class="hero-tagline">Intelligence, without the noise.</h2>
+            <p class="hero-subtext">Ask questions, explore ideas, solve problems, and get answers from your knowledge base or AI assistant.</p>
+            <div class="hero-divider"></div>
+            <div class="hero-status-pill">
+              <span class="status-indicator-dot"></span>
+              <span class="hero-status-label">HYBRID INTELLIGENCE SYSTEM</span>
+            </div>
+          </div>
         </div>
 
-        <!-- DYNAMIC MESSAGE BUBBLES INJECTED HERE -->
+        <!-- DYNAMIC MESSAGE ROWS INJECTED HERE -->
 
       </div>
 
@@ -179,13 +181,13 @@
           <div class="typing-dot"></div>
           <div class="typing-dot"></div>
           <div class="typing-dot"></div>
-          <span class="typing-label" id="typingLabel">Thinking &amp; retrieving...</span>
+          <span class="typing-label" id="typingLabel">Processing query...</span>
         </div>
       </div>
 
       <!-- FLOATING SCROLL TO BOTTOM BUTTON -->
       <button class="scroll-bottom-btn hidden" id="scrollBottomBtn" title="Scroll to latest message">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
 
       <!-- INPUT BAR AT BOTTOM -->
@@ -195,7 +197,7 @@
             <textarea
               id="messageInput"
               class="message-textarea"
-              placeholder="Ask anything about campus life, AI/ML concepts, web dev, or general coding..."
+              placeholder="Ask anything about campus life, AI/ML concepts, or general coding..."
               rows="1"
               autocomplete="off"
             ></textarea>
@@ -204,27 +206,24 @@
               <!-- Compact Segmented Pill Switch for Routing Mode -->
               <div class="input-mode-selector" id="engineModePills" role="radiogroup" aria-label="Routing Mode">
                 <button type="button" class="mode-pill-mini active" data-mode="auto" id="modeBtnAuto" title="Auto: Match verified FAQ first, fallback to General AI">
-                  <span class="pill-icon">⚡</span>
-                  <span class="pill-name">Auto</span>
+                  <span class="pill-name">AUTO</span>
                 </button>
                 <button type="button" class="mode-pill-mini" data-mode="faq" id="modeBtnFaq" title="FAQ Only: Answers exclusively from verified dataset">
-                  <span class="pill-icon">📚</span>
-                  <span class="pill-name">FAQ</span>
+                  <span class="pill-name">FAQ ONLY</span>
                 </button>
                 <button type="button" class="mode-pill-mini" data-mode="ai" id="modeBtnAi" title="AI Assistant: Direct Gemini General AI LLM">
-                  <span class="pill-icon">✨</span>
-                  <span class="pill-name">AI</span>
+                  <span class="pill-name">AI ASSISTANT</span>
                 </button>
               </div>
 
-              <span class="input-hint">Press <strong>Enter ↵</strong> to send, <strong>Shift + Enter</strong> for new line</span>
+              <span class="input-hint">Enter ↵ to send · Shift + Enter for newline</span>
 
               <div class="tray-right-buttons">
                 <button type="button" class="clear-input-btn hidden" id="clearInputBtn" title="Clear text">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
                 <button type="submit" class="send-btn" id="sendBtn" title="Send message" disabled>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                   </svg>
@@ -243,21 +242,21 @@
     <div class="modal-dialog modal-large">
       <div class="modal-header">
         <div class="modal-title-container">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          <h3 class="modal-title" id="modalMainTitle">FAQ Knowledge Base Manager</h3>
+          <span class="modal-symbol">■</span>
+          <h3 class="modal-title" id="modalMainTitle">FAQ KNOWLEDGE BASE</h3>
         </div>
         <button class="icon-btn modal-close-btn" id="closeFaqManagerModalBtn" title="Close Modal">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
 
       <!-- TABS HEADER -->
       <div class="modal-tabs">
         <button class="modal-tab-btn active" id="tabAddFaqBtn" type="button">
-          <span>➕ Add New FAQ</span>
+          <span>ADD NEW FAQ</span>
         </button>
         <button class="modal-tab-btn" id="tabBrowseFaqBtn" type="button">
-          <span>📋 Browse &amp; Edit FAQs</span>
+          <span>BROWSE &amp; EDIT</span>
         </button>
       </div>
 
@@ -267,43 +266,42 @@
           <input type="hidden" id="editFaqId" value="">
 
           <div class="form-group">
-            <label class="form-label" for="newFaqQuestion">Question <span class="required">*</span></label>
+            <label class="form-label" for="newFaqQuestion">QUESTION <span class="required">*</span></label>
             <input type="text" id="newFaqQuestion" class="form-input" placeholder="e.g., What are the hostel mess timings for dinner?" required>
           </div>
 
           <div class="form-row-2">
             <div class="form-group">
-              <label class="form-label" for="newFaqCategory">Category <span class="required">*</span></label>
+              <label class="form-label" for="newFaqCategory">CATEGORY <span class="required">*</span></label>
               <select id="newFaqCategory" class="form-select" required>
-                <option value="university_campus">🏫 University &amp; Campus</option>
-                <option value="ai_ml_data_science">🤖 AI, ML &amp; Data Science</option>
-                <option value="software_engineering_web">💻 Software &amp; Web Dev</option>
-                <option value="conversational_smalltalk">💬 Conversational &amp; Small Talk</option>
-                <option value="custom">✨ Custom User Domain</option>
+                <option value="university_campus">University &amp; Campus</option>
+                <option value="ai_ml_data_science">AI, ML &amp; Data Science</option>
+                <option value="software_engineering_web">Software &amp; Web Dev</option>
+                <option value="conversational_smalltalk">Conversational &amp; Small Talk</option>
+                <option value="custom">Custom Domain</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="newFaqTags">Keywords / Tags (Comma-separated)</label>
+              <label class="form-label" for="newFaqTags">KEYWORDS / TAGS (COMMA-SEPARATED)</label>
               <input type="text" id="newFaqTags" class="form-input" placeholder="e.g., mess, dinner, food, hostel">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="newFaqAnswer">Markdown Answer <span class="required">*</span></label>
+            <label class="form-label" for="newFaqAnswer">MARKDOWN ANSWER <span class="required">*</span></label>
             <textarea id="newFaqAnswer" class="form-textarea" rows="5" placeholder="Enter clear, helpful answer formatted in markdown with bullet points or code snippets..." required></textarea>
           </div>
 
           <div class="modal-notice">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <span id="formNoticeText">Submitting will immediately append to <code>data/faqs.json</code> and re-fit the TF-IDF vectorizer live in memory!</span>
+            <span class="notice-bullet">ℹ</span>
+            <span id="formNoticeText">Submitting will immediately append to <code>data/faqs.json</code> and re-fit the TF-IDF vectorizer live in memory.</span>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-ghost" id="cancelFaqBtn">Cancel</button>
+            <button type="button" class="btn btn-secondary" id="cancelFaqBtn">CANCEL</button>
             <button type="submit" class="btn btn-primary" id="saveFaqBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span id="saveBtnText">Save &amp; Retrain Live</span>
+              <span id="saveBtnText">SAVE &amp; RETRAIN</span>
             </button>
           </div>
         </form>
@@ -312,14 +310,14 @@
       <!-- TAB 2: BROWSE & EDIT FAQS -->
       <div class="modal-tab-content" id="tabContentBrowse">
         <div class="browse-toolbar">
-          <input type="text" id="faqSearchInput" class="form-input" placeholder="🔍 Search existing FAQs by keyword...">
+          <input type="text" id="faqSearchInput" class="form-input" placeholder="Search existing FAQs by keyword...">
           <select id="faqCategoryFilterSelect" class="form-select">
             <option value="all">All Categories</option>
-            <option value="university_campus">🏫 Campus Life</option>
-            <option value="ai_ml_data_science">🤖 AI &amp; ML</option>
-            <option value="software_engineering_web">💻 Software &amp; Web</option>
-            <option value="conversational_smalltalk">💬 Small Talk</option>
-            <option value="custom">✨ Custom</option>
+            <option value="university_campus">Campus Life</option>
+            <option value="ai_ml_data_science">AI &amp; ML</option>
+            <option value="software_engineering_web">Software &amp; Web</option>
+            <option value="conversational_smalltalk">Small Talk</option>
+            <option value="custom">Custom</option>
           </select>
         </div>
 
