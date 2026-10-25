@@ -327,6 +327,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- RENDER MESSAGE ROW ---
   function appendMessage({ sender, text, time, promptQuery, meta }) {
+    if (welcomeHero) {
+      welcomeHero.classList.add("hidden");
+      welcomeHero.style.display = "none";
+    }
+
     const row = document.createElement("div");
     row.className = `message-row ${sender}`;
 
@@ -719,6 +724,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (welcomeHero) {
+      welcomeHero.classList.remove("hidden");
       welcomeHero.style.display = "flex";
     }
 
@@ -745,7 +751,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (state.history.length > 0) {
-      if (welcomeHero) welcomeHero.style.display = "none";
+      if (welcomeHero) {
+        welcomeHero.classList.add("hidden");
+        welcomeHero.style.display = "none";
+      }
       state.history.forEach(turn => {
         appendMessage({
           sender: turn.sender,
@@ -756,7 +765,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       scrollToBottom();
     } else {
-      if (welcomeHero) welcomeHero.style.display = "flex";
+      if (welcomeHero) {
+        welcomeHero.classList.remove("hidden");
+        welcomeHero.style.display = "flex";
+      }
     }
 
     if (sess.mode && sess.mode !== state.mode) {
@@ -1256,4 +1268,55 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => toast.remove(), 250);
     }, 3200);
   }
+
+  // --- BESPOKE SERVICE CARDS & EDITORIAL NAV WIRE-UP ---
+  const serviceCardFaq = document.getElementById("serviceCardFaq");
+  if (serviceCardFaq) {
+    serviceCardFaq.addEventListener("click", () => {
+      switchMode("faq");
+      showToast("Routing mode switched to FAQ ONLY", "info");
+      if (messageInput) messageInput.focus();
+    });
+  }
+
+  const serviceCardAi = document.getElementById("serviceCardAi");
+  if (serviceCardAi) {
+    serviceCardAi.addEventListener("click", () => {
+      switchMode("ai");
+      showToast("Routing mode switched to AI ASSISTANT", "info");
+      if (messageInput) messageInput.focus();
+    });
+  }
+
+  const serviceCardStudio = document.getElementById("serviceCardStudio");
+  if (serviceCardStudio) {
+    serviceCardStudio.addEventListener("click", () => {
+      if (faqManagerModal) {
+        faqManagerModal.classList.remove("hidden");
+        loadFaqsList();
+      }
+    });
+  }
+
+  const navFaqLink = document.getElementById("navFaqLink");
+  if (navFaqLink) {
+    navFaqLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (faqManagerModal) {
+        faqManagerModal.classList.remove("hidden");
+        loadFaqsList();
+      }
+    });
+  }
+
+  document.querySelectorAll(".open-faq-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (faqManagerModal) {
+        faqManagerModal.classList.remove("hidden");
+        loadFaqsList();
+      }
+    });
+  });
 });
+
