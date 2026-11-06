@@ -62,15 +62,6 @@
 ├── .env.example           # Environment variable template
 └── .gitignore             # Secrets & cache ignore rules
 ---
-
-## 🔒 Security & Best Practices
-
-- **Zero API Key Leakage:** API keys are read strictly from runtime environment variables on the backend. Frontend code never accesses or exposes server secrets.
-- **Git Protection:** `.gitignore` actively prevents `.env`, local caches, and logs from being committed.
-- **AST Safe Math Execution:** Dynamic math evaluations use abstract syntax tree inspection to eliminate `eval()` injection vulnerabilities.
-
----
-
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
