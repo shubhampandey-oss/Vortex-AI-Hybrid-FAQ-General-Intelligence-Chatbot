@@ -65,33 +65,9 @@
 
 ---
 
-## 📤 Step 1: Uploading to GitHub
 
-1. **Verify Git Status**
-   Ensure `.env` is **never** committed:
-   ```bash
-   git status
-   ```
-2. **Commit All Files**
-   ```bash
-   git add .
-   git commit -m "Initial release of Vortex AI Hybrid Chatbot"
-   ```
-3. **Create a New Repository on GitHub**
-   - Go to [github.com/new](https://github.com/new).
-   - Name your repository (e.g., `vortex-ai-chatbot`).
-   - Choose **Public** or **Private**.
-   - Do **not** check "Initialize with README" or .gitignore (we already have them).
-4. **Push to GitHub**
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-   git push -u origin main
-   ```
 
----
-
-## 🌐 Step 2: Deploying to Render
+## 🌐 Steps: Deploying to Render
 
 You can deploy to [Render](https://render.com) using either **Method A (Blueprint - Easiest)** or **Method B (Manual)**.
 
